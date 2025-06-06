@@ -1,4 +1,4 @@
-Buatkan aplikasi sistem daftar hadir rapat lengkap menggunakan PHP, MySQL, dan Tailwind CSS dengan spesifikasi berikut:
+Aplikasi sistem daftar hadir rapat MAN 1 Jember lengkap menggunakan PHP, MySQL, dan Tailwind CSS dengan spesifikasi berikut:
 
 1. Basis Data:
    - Rancang struktur database MySQL yang efisien untuk menyimpan data rapat, peserta, dan kehadiran
