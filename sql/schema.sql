@@ -20,13 +20,24 @@ CREATE TABLE IF NOT EXISTS meetings (
     date DATE NOT NULL,
     time TIME NOT NULL,
     location VARCHAR(255) DEFAULT NULL,
-    agenda TEXT DEFAULT NULL
+    agenda TEXT DEFAULT NULL,
+    pin INT NOT NULL,
+    minutes TEXT DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS attendance (
     id INT AUTO_INCREMENT PRIMARY KEY,
     meeting_id INT NOT NULL,
     participant VARCHAR(255) NOT NULL,
+    signature TEXT DEFAULT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (meeting_id) REFERENCES meetings(id)
+);
+
+CREATE TABLE IF NOT EXISTS attachments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    meeting_id INT NOT NULL,
+    file_path VARCHAR(255) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (meeting_id) REFERENCES meetings(id)
 );

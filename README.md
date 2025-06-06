@@ -16,11 +16,9 @@ Aplikasi sistem daftar hadir rapat MAN 1 Jember lengkap menggunakan PHP, MySQL, 
 3. Fitur Utama:
    - Sistem login multi-level (superadmin, admin, notulen)
    - Peserta rapat tidak perlu login, cukun scan QR atau masukkan PIN
-   - Manajemen data rapat (judul, tanggal, waktu, lokasi, agenda, peserta)
-   - Pencatatan kehadiran dengan berbagai metode (manual, QR code, atau PIN)
-   - Fitur absensi dengan tanda tangan digital
-   - Laporan kehadiran yang dapat difilter (per tanggal, departemen, atau peserta)
-   - Ekspor data ke PDF, Excel, dan CSV
+   - Manajemen data rapat (judul, tanggal, waktu, lokasi, agenda, PIN kehadiran)
+   - Pencatatan kehadiran menggunakan PIN serta tanda tangan digital
+   - Laporan kehadiran yang dapat difilter per tanggal dan diekspor ke CSV
    - Notifikasi email untuk pengingat rapat
 
 4. Pengembangan Kode:

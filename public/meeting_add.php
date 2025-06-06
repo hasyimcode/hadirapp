@@ -8,8 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = sanitize_input($_POST['title'] ?? '');
     $date = sanitize_input($_POST['date'] ?? '');
     $time = sanitize_input($_POST['time'] ?? '');
-    $stmt = $mysqli->prepare('INSERT INTO meetings (title, date, time) VALUES (?, ?, ?)');
-    $stmt->bind_param('sss', $title, $date, $time);
+    $location = sanitize_input($_POST['location'] ?? '');
+    $agenda = sanitize_input($_POST['agenda'] ?? '');
+    $pin = (int)($_POST['pin'] ?? rand(1000,9999));
+    $stmt = $mysqli->prepare('INSERT INTO meetings (title, date, time, location, agenda, pin) VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt->bind_param('sssssi', $title, $date, $time, $location, $agenda, $pin);
     $stmt->execute();
     header('Location: dashboard.php');
     exit;
@@ -36,6 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="mb-4">
         <label class="block mb-1">Waktu</label>
         <input type="time" name="time" class="w-full p-2 border rounded" required>
+    </div>
+    <div class="mb-4">
+        <label class="block mb-1">Lokasi</label>
+        <input type="text" name="location" class="w-full p-2 border rounded">
+    </div>
+    <div class="mb-4">
+        <label class="block mb-1">Agenda</label>
+        <textarea name="agenda" class="w-full p-2 border rounded"></textarea>
+    </div>
+    <div class="mb-4">
+        <label class="block mb-1">PIN Kehadiran</label>
+        <input type="number" name="pin" class="w-full p-2 border rounded" value="<?php echo rand(1000,9999); ?>">
     </div>
     <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Simpan</button>
 </form>
