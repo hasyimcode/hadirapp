@@ -37,3 +37,12 @@ Aplikasi sistem daftar hadir rapat MAN 1 Jember lengkap menggunakan PHP, MySQL, 
    - Unggah lampiran dokumen rapat
    - Sistem pengingat otomatis
    - Mode gelap/terang
+
+## Instalasi
+
+1. Buat database MySQL bernama `hadirapp` dan jalankan skrip `sql/schema.sql` untuk membuat tabel.
+2. Salin folder `public` ke web server (misalnya Apache) dan pastikan PHP 8+ telah terpasang.
+3. Ubah konfigurasi database pada `src/config.php` jika diperlukan.
+4. Buat akun pengguna pertama secara manual pada tabel `users` dengan password yang di-hash menggunakan `password_hash`.
+5. Akses `index.php` melalui browser untuk login.
+
